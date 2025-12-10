@@ -1,43 +1,31 @@
-# [baghici.com](https://baghici.com/)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This repository contains the source code for my personal portfolio website. The site is built using modern web technologies and showcases my skills, services, and ways to get in touch.
+## Getting Started
 
-## Technologies Used
+First, run the development server:
 
-- **Node.js**: JavaScript runtime environment.
-- **Express**: Web application framework for Node.js.
-- **EJS**: Embedded JavaScript templating.
-- **Tailwind CSS**: Utility-first CSS framework for styling.
-- **i18next**: Internationalization framework for handling multiple languages.
-- **AOS (Animate On Scroll)**: Library for animating elements on scroll.
-- **Vanilla JavaScript**: For interactive features and animations.
-
-# Requirements
-
-You need to have installed [Node.js](https://nodejs.org/es/download/).
-
-# Set up
-
-Clone the repo or download it.
-
-Go to the project folder and run
-
-```sh
-$ npm install
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Start the Tailwind CLI build process
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Run the CLI tool to scan your template files for classes and build your CSS.:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```sh
-$ npm run build:css
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Learn More
 
-And run your server running the following command in the root of the project:
+To learn more about Next.js, take a look at the following resources:
 
-```sh
-$ npm run dev
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
