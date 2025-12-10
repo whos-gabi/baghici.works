@@ -2,6 +2,7 @@ import { BentoGrid } from "@/components/bento/bento-grid";
 import { getShowcaseData } from "@/lib/github";
 
 export const dynamic = "force-dynamic";
+export const runtime = "edge";
 
 export default async function Home() {
   const { repos, orgs } = await getShowcaseData();
