@@ -1,4 +1,4 @@
-import { Octokit } from "@octokit/rest";
+import { Octokit, type RestEndpointMethodTypes } from "@octokit/rest";
 
 export type ShowcaseRepo = {
   id: number;
@@ -96,29 +96,24 @@ export async function getShowcaseData(): Promise<{
       }),
     );
 
-    const normalizeRepo = (repo: {
-      id: number;
-      name: string;
-      description: string | null;
-      html_url: string;
-      homepage?: string | null;
-      stargazers_count: number;
-      language?: string | null;
-      owner?: { login?: string };
-      topics?: string[];
-      updated_at: string;
-      fork?: boolean;
-    }): ShowcaseRepo => ({
+    type ApiRepo =
+      RestEndpointMethodTypes["repos"]["listForUser"]["response"]["data"][number];
+
+    const normalizeRepo = (repo: ApiRepo): ShowcaseRepo => ({
       id: repo.id,
       name: repo.name,
-      description: repo.description,
+      description: repo.description ?? null,
       url: repo.html_url,
       homepage: repo.homepage,
-      stars: repo.stargazers_count,
+      stars: repo.stargazers_count ?? 0,
       language: repo.language,
       owner: repo.owner?.login ?? username,
       topics: Array.isArray(repo.topics) ? repo.topics : [],
-      updatedAt: repo.updated_at,
+      updatedAt:
+        repo.updated_at ??
+        repo.pushed_at ??
+        repo.created_at ??
+        new Date().toISOString(),
     });
 
     const userReposNormalized = userRepos
